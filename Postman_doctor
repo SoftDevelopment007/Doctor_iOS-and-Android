@@ -1,0 +1,1901 @@
+
+https://www.sendspace.com/file/3je96j
+
+SkyPe: Pedro.Lizondo
+
+diegoliz01@gmail.com
+Password: 33467079
+pedrolizondo@gmail.com
+
+
+
+//"name": "appointment"
+1. http://67.205.136.161:8070/DocAppointments/rest/appointment/all
+
+- key: Content-Type, value: application/json
+- {
+	"authorization": 
+		{	"patientID": 1,
+			 "loginPolicy": "USRPASSWD",
+			 "eml": "juanperez@gmail.com",
+			 "psswd": "Prueba123"
+		 },
+
+	"patientID": 1
+	
+}
+- Response
+[
+  {
+    "id": 52,
+    "fecha": "22-10-2017",
+    "horaInicio": "11:00:00",
+    "horaFin": "11:30:00",
+    "fechaCreacion": "26-10-2016 05:30:25",
+    "doctor": {
+      "id": 1,
+      "personID": 2,
+      "specialtyID": 1,
+      "assistantID": 1,
+      "lastName": "Rodriguez",
+      "name": "Maximiliano"
+    },
+    "estado": 1,
+    "hospitalID": 1,
+    "patientID": 1,
+    "doctorID": 1,
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "hospital": {
+      "id": 1,
+      "nombre": "Hospital de Tucuman",
+      "direccion": "Hipolito Yrigoyen 2912",
+      "telefono": "4242-8573",
+      "email": "hospital@minindancia.gov.ar",
+      "estado": 1,
+      "locationID": 27909
+    }
+  },
+  {
+    "id": 55,
+    "fecha": "21-09-2019",
+    "horaInicio": "11:00:00",
+    "horaFin": "11:30:00",
+    "fechaCreacion": "01-11-2016 23:05:29",
+    "doctor": {
+      "id": 1,
+      "personID": 2,
+      "specialtyID": 1,
+      "assistantID": 1,
+      "lastName": "Rodriguez",
+      "name": "Maximiliano"
+    },
+    "estado": 1,
+    "hospitalID": 1,
+    "patientID": 1,
+    "doctorID": 1,
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "hospital": {
+      "id": 1,
+      "nombre": "Hospital de Tucuman",
+      "direccion": "Hipolito Yrigoyen 2912",
+      "telefono": "4242-8573",
+      "email": "hospital@minindancia.gov.ar",
+      "estado": 1,
+      "locationID": 27909
+    }
+  },
+  {
+    "id": 53,
+    "fecha": "22-10-2019",
+    "horaInicio": "11:00:00",
+    "horaFin": "11:30:00",
+    "fechaCreacion": "26-10-2016 05:32:33",
+    "doctor": {
+      "id": 1,
+      "personID": 2,
+      "specialtyID": 1,
+      "assistantID": 1,
+      "lastName": "Rodriguez",
+      "name": "Maximiliano"
+    },
+    "estado": 1,
+    "hospitalID": 1,
+    "patientID": 1,
+    "doctorID": 1,
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "hospital": {
+      "id": 1,
+      "nombre": "Hospital de Tucuman",
+      "direccion": "Hipolito Yrigoyen 2912",
+      "telefono": "4242-8573",
+      "email": "hospital@minindancia.gov.ar",
+      "estado": 1,
+      "locationID": 27909
+    }
+  }
+]
+
+
+   
+@@ Add time Schedule       confirm date.	  
+2. http://67.205.136.161:8070/DocAppointments/rest/appointment/schedule
+- {
+	"authorization": 
+	{
+		"patientID": 1,
+	 	"loginPolicy": "USRPASSWD",
+	 	"eml": "juanperez@gmail.com",
+	 	"psswd": "Prueba123"
+		
+	},
+	"patientID": 1,
+	"date": "20-09-2016",
+	"startTime": "10:00:00",
+	"endTime": "10:30:00",
+	"hospitalID": 1,
+	"doctorID": 1
+}
+- Response
+{
+  "STATUS": "SUCCESS",
+  "MSG_": "El turno ya habia sido calendarizado para el paciente"
+}
+{
+  "STATUS": "ERROR",
+  "MSG_": "Invalid"
+}
+
+
+
+@@delete time schedules.
+3. http://67.205.136.161:8070/DocAppointments/rest/appointment/cancel
+- {
+	"authorization": 
+	{
+		"patientID": 1,
+	 	"loginPolicy": "USRPASSWD",
+	 	"eml": "juanperez@gmail.com",
+	 	"psswd":"Prueba123"
+	 },
+	 
+	 "patientID": 1,
+	 "appointmentID": 23,
+	 "status": 3
+}
+- Response
+{
+  "STATUS": "SUCCESS",
+  "MSG_": "El turno ha sido cancelado exitosamente"
+}
+
+
+
+
+
+//"name": "doctor"
+
+//step5 - ESPECIALISTA
+4. http://67.205.136.161:8070/DocAppointments/rest/doctor/byinstitutionandspecialty
+- {
+	"authorization": 
+		{
+			"patientID": 1,
+		 	"loginPolicy": "USRPASSWD",
+		 	"eml": "juanperez@gmail.com",
+		 	"psswd":"Prueba123"
+		 },
+	"specialtyID": 1,
+	"hospitalID": 1
+}
+
+- Response
+[
+  {
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "doctorID": 8,
+    "information": {
+      "nombre": "Florencia",
+      "apellido": "Cabral",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "plizondo@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 8,
+      "assistantID": null,
+      "locationID": 27859,
+      "personID": 28
+    }
+  },
+  {
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "doctorID": 5,
+    "information": {
+      "nombre": "Jose",
+      "apellido": "Juarez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "algo@gmai2l.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 5,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 23
+    }
+  },
+  {
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "doctorID": 9,
+    "information": {
+      "nombre": "Juan Jose",
+      "apellido": "Juarez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "pp@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 9,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 29
+    }
+  },
+  {
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "doctorID": 1,
+    "information": {
+      "nombre": "Maximiliano",
+      "apellido": "Rodriguez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "juancarlos@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 1,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 2
+    }
+  },
+  {
+    "specialty": {
+      "id": 1,
+      "nombre": "Cardiologia"
+    },
+    "doctorID": 7,
+    "information": {
+      "nombre": "Juan Pablo",
+      "apellido": "Mendoza",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "plizondo@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 7,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 27
+    }
+  }
+]
+
+
+
+
+@@ sync and none snyc time
+// Get Time Schedules ::: In this case appointmentDateStart = appointmentDateEnd
+5. http://67.205.136.161:8070/DocAppointments/rest/doctor/schedules
+- {
+  "doctorID": 1,
+  "hospitalID": 1,
+  "appointmentDateStart": "15-06-2017",
+  "appointmentDateEnd": "15-06-2017"
+}
+- Response
+{
+  "appointments": [
+    {
+      "id": 150,
+      "fecha": "15-06-2017",
+      "horaInicio": "10:00:00",
+      "horaFin": "10:30:00",
+      "fechaCreacion": "31-05-2017 12:39:52",
+      "doctor": {
+        "id": 1,
+        "personID": 2,
+        "specialtyID": 1,
+        "assistantID": 1,
+        "lastName": "Rodriguez",
+        "name": "Maximiliano"
+      },
+      "estado": 1,
+      "hospitalID": 1,
+      "patientID": 1,
+      "doctorID": 1,
+      "specialty": {
+        "id": 1,
+        "nombre": "Cardiologia"
+      },
+      "hospital": {
+        "id": 1,
+        "nombre": "Hospital de Tucuman",
+        "direccion": "Hipolito Yrigoyen 2912",
+        "telefono": "4242-8573",
+        "email": "hospital@minindancia.gov.ar",
+        "estado": 1,
+        "locationID": 27909
+      }
+    },
+    {
+      "id": 151,
+      "fecha": "15-06-2017",
+      "horaInicio": "18:00:00",
+      "horaFin": "18:30:00",
+      "fechaCreacion": "31-05-2017 12:40:05",
+      "doctor": {
+        "id": 1,
+        "personID": 2,
+        "specialtyID": 1,
+        "assistantID": 1,
+        "lastName": "Rodriguez",
+        "name": "Maximiliano"
+      },
+      "estado": 1,
+      "hospitalID": 1,
+      "patientID": 1,
+      "doctorID": 1,
+      "specialty": {
+        "id": 1,
+        "nombre": "Cardiologia"
+      },
+      "hospital": {
+        "id": 1,
+        "nombre": "Hospital de Tucuman",
+        "direccion": "Hipolito Yrigoyen 2912",
+        "telefono": "4242-8573",
+        "email": "hospital@minindancia.gov.ar",
+        "estado": 1,
+        "locationID": 27909
+      }
+    },
+    {
+      "id": 152,
+      "fecha": "15-06-2017",
+      "horaInicio": "17:00:00",
+      "horaFin": "17:30:00",
+      "fechaCreacion": "31-05-2017 13:06:01",
+      "doctor": {
+        "id": 1,
+        "personID": 2,
+        "specialtyID": 1,
+        "assistantID": 1,
+        "lastName": "Rodriguez",
+        "name": "Maximiliano"
+      },
+      "estado": 1,
+      "hospitalID": 1,
+      "patientID": 1,
+      "doctorID": 1,
+      "specialty": {
+        "id": 1,
+        "nombre": "Cardiologia"
+      },
+      "hospital": {
+        "id": 1,
+        "nombre": "Hospital de Tucuman",
+        "direccion": "Hipolito Yrigoyen 2912",
+        "telefono": "4242-8573",
+        "email": "hospital@minindancia.gov.ar",
+        "estado": 1,
+        "locationID": 27909
+      }
+    }
+  ],
+  "schedules": []
+}
+
+
+
+
+
+6. http://67.205.136.161:8070/DocAppointments/rest/doctor/favorite/add
+- {
+	"doctorID": 1,
+	"patientID": 1,
+	"hospitalID": 1
+}
+- Error
+<html>
+    <head>
+        <title>Error</title>
+    </head>
+    <body>404 - Not Found</body>
+</html>
+
+
+
+
+
+7. http://67.205.136.161:8070/DocAppointments/rest/doctor/favorite/all
+- {
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		},
+	"patientID": 1
+}
+
+- Error
+<html>
+    <head>
+        <title>Error</title>
+    </head>
+    <body>404 - Not Found</body>
+</html>
+
+
+
+
+   
+8. http://67.205.136.161:8070/DocAppointments/rest/doctor/favorite/remove
+- {
+	"favoriteID": 4
+}
+
+- Response []
+
+
+
+
+
+9. http://67.205.136.161:8070/DocAppointments/rest/doctor/all
+- {
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+
+- Response
+[
+  {
+    "assistantID": 1,
+    "doctorID": 1,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Maximiliano",
+      "apellido": "Rodriguez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "juancarlos@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 1,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 2
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 2,
+    "specialtyID": 3,
+    "information": {
+      "nombre": "Ines",
+      "apellido": "Ayala",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "nelson@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 2,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 5
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 3,
+    "specialtyID": 4,
+    "information": {
+      "nombre": "Juan",
+      "apellido": "Nuñez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "luciana@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 3,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 6
+    }
+  },
+  {
+    "assistantID": 2,
+    "doctorID": 5,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Jose",
+      "apellido": "Juarez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "algo@gmai2l.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 5,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 23
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 6,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Luciana",
+      "apellido": "Perez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "algo@gmai2l.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 2,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 6,
+      "assistantID": null,
+      "locationID": 27859,
+      "personID": 24
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 7,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Juan Pablo",
+      "apellido": "Mendoza",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "plizondo@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 7,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 27
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 8,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Florencia",
+      "apellido": "Cabral",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "plizondo@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 8,
+      "assistantID": null,
+      "locationID": 27859,
+      "personID": 28
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 9,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Juan Jose",
+      "apellido": "Juarez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "pp@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 9,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 29
+    }
+  }
+]
+
+
+
+
+
+10. http://67.205.136.161:8070/DocAppointments/rest/doctor/add
+- {
+	"firstName": "Doctor hosp",
+	"lastName":  "Hospital",
+	"cellPhone": "5678-1234",
+	"hospitalID": 1,
+	"specialtyID": 1,
+	"assistantID": 1,
+	"dni": "23498733",
+	"birthDate": "01-01-1997",
+	"gender": 2,
+	"locationID": 27909,
+	"provinceID": 24,
+	"telephone": "123-456",
+	"loginPolicy": "USRPASSWD",
+	"email": "pp@gmail.com",
+	"password": "Prueba1234",
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+- Response
+{
+  "STATUS": "SUCCESS",
+  "MSG_": "El doctor ha sido creado exitosamente",
+  "doctorID": 10
+}
+
+
+
+
+
+11. http://67.205.136.161:8070/DocAppointments/rest/doctor/modify
+- {
+	"firstName": "Juan Jose",
+	"lastName":  "Juarez",
+	"cellPhone": "5678-123499",
+	"doctorID": 9,
+	"hospitalID": 1,
+	"dni": "32233643",
+	"birthDate": "01-01-1986",
+	"gender": 1,
+	"locationID": 27909,
+	"provinceID": 24,
+	"telephone": "123-45699",
+	"loginPolicy": "USRPASSWD",
+	"email": "pepe@gmail.com",
+	"password": "Prueba2016",
+	"authorization": 
+	{
+		"patientID": 1,
+		"loginPolicy": "USRPASSWD",
+		"eml": "juanperez@gmail.com",
+		"psswd": "Prueba123"
+	}
+}
+- Response 
+{
+  "STATUS": "SUCCESS",
+  "MSG_": "La informacion del doctor ha sido actualizada exitosamente"
+}
+
+
+
+
+
+12. http://67.205.136.161:8070/DocAppointments/rest/doctor/byassistant
+- {
+	"assistantID": 1,
+	"authorization":
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+
+- Response 
+[
+  {
+    "assistantID": 1,
+    "doctorID": 1,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Maximiliano",
+      "apellido": "Rodriguez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "juancarlos@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 1,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 2
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 2,
+    "specialtyID": 3,
+    "information": {
+      "nombre": "Ines",
+      "apellido": "Ayala",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "nelson@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 2,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 5
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 3,
+    "specialtyID": 4,
+    "information": {
+      "nombre": "Juan",
+      "apellido": "Nuñez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "luciana@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 3,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 6
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 6,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Luciana",
+      "apellido": "Perez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "algo@gmai2l.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 2,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 6,
+      "assistantID": null,
+      "locationID": 27859,
+      "personID": 24
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 7,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Juan Pablo",
+      "apellido": "Mendoza",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "plizondo@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 7,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 27
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 8,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Florencia",
+      "apellido": "Cabral",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "plizondo@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 8,
+      "assistantID": null,
+      "locationID": 27859,
+      "personID": 28
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 9,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Juan Jose",
+      "apellido": "Juarez",
+      "dni": "32233643",
+      "sexo": 1,
+      "fechaNacimiento": "01-01-1986",
+      "telefono": "123-45699",
+      "celular": "5678-123499",
+      "email": "pp@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "DOCTOR",
+      "patientID": null,
+      "doctorID": 9,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 29
+    }
+  },
+  {
+    "assistantID": 1,
+    "doctorID": 10,
+    "specialtyID": 1,
+    "information": {
+      "nombre": "Doctor hosp",
+      "apellido": "Hospital",
+      "dni": "23498733",
+      "sexo": 2,
+      "fechaNacimiento": "01-01-1997",
+      "telefono": "123-456",
+      "celular": "5678-1234",
+      "email": "pp@gmail.com",
+      "estado": 1,
+      "numObraSocial": null,
+      "googleUserId": null,
+      "hospitalID": 1,
+      "provinceID": 24,
+      "obraSocialInfo": null,
+      "personType": "UNKNOWN",
+      "patientID": null,
+      "doctorID": null,
+      "assistantID": null,
+      "locationID": 27909,
+      "personID": 263
+    }
+  }
+]
+
+
+
+
+
+13. http://67.205.136.161:8070/DocAppointments/rest/doctor/single
+- {
+	"doctorID": 1,
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+
+- Response 
+{
+  "assistantID": 1,
+  "doctorID": 1,
+  "specialtyID": 1,
+  "information": {
+    "nombre": "Maximiliano",
+    "apellido": "Rodriguez",
+    "dni": "32233643",
+    "sexo": 1,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "123-45699",
+    "celular": "5678-123499",
+    "email": "juancarlos@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": 1,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "DOCTOR",
+    "patientID": null,
+    "doctorID": 1,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 2
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//"name": "location"
+
+//step1 - PROVICIA
+14. http://67.205.136.161:8070/DocAppointments/rest/location/provinces/all
+- {}
+- Response 
+[
+  {
+    "id": 24,
+    "nombre": "Tucumán"
+  }
+]
+
+//step2 - CIUDAD
+15. http://67.205.136.161:8070/DocAppointments/rest/location/locationsperprovince
+- {
+	"provinceID" : 24	
+}
+- Response 
+[
+  {
+    "id": 27859,
+    "nombre": "Acheral   ",
+    "provinceID": 24
+  },
+  {
+    "id": 27860,
+    "nombre": "Aguilares",
+    "provinceID": 24
+  },
+  {
+    "id": 27861,
+    "nombre": "Alberdi",
+    "provinceID": 24
+  },
+  {
+    "id": 27862,
+    "nombre": "Alderetes    ",
+    "provinceID": 24
+  },
+  {
+    "id": 27864,
+    "nombre": "Ampimpa",
+    "provinceID": 24
+  },
+  {
+    "id": 27865,
+    "nombre": "Anca Juli",
+    "provinceID": 24
+  },
+  {
+    "id": 27866,
+    "nombre": "Arcadia",
+    "provinceID": 24
+  },
+  {
+    "id": 27867,
+    "nombre": "Banda del Río Salí",
+    "provinceID": 24
+  },
+  {
+    "id": 27868,
+    "nombre": "Barrio APUNT",
+    "provinceID": 24
+  },
+  {
+    "id": 27869,
+    "nombre": "Bella Vista",
+    "provinceID": 24
+  },
+  {
+    "id": 27870,
+    "nombre": "Burruyacú",
+    "provinceID": 24
+  },
+  {
+    "id": 27872,
+    "nombre": "Colalao del Valle",
+    "provinceID": 24
+  },
+  {
+    "id": 27874,
+    "nombre": "Concepción",
+    "provinceID": 24
+  },
+  {
+    "id": 27878,
+    "nombre": "El Manantial",
+    "provinceID": 24
+  },
+  {
+    "id": 27879,
+    "nombre": "El Cadillal",
+    "provinceID": 24
+  },
+  {
+    "id": 27880,
+    "nombre": "El Siambon",
+    "provinceID": 24
+  },
+  {
+    "id": 27881,
+    "nombre": "El Pichao",
+    "provinceID": 24
+  },
+  {
+    "id": 27882,
+    "nombre": "Escaba",
+    "provinceID": 24
+  },
+  {
+    "id": 27884,
+    "nombre": "Graneros",
+    "provinceID": 24
+  },
+  {
+    "id": 27885,
+    "nombre": "Ingenio La Trinidad",
+    "provinceID": 24
+  },
+  {
+    "id": 27886,
+    "nombre": "La Cocha",
+    "provinceID": 24
+  },
+  {
+    "id": 27887,
+    "nombre": "Las Cejas",
+    "provinceID": 24
+  },
+  {
+    "id": 27889,
+    "nombre": "Lules",
+    "provinceID": 24
+  },
+  {
+    "id": 27891,
+    "nombre": "Las Talitas",
+    "provinceID": 24
+  },
+  {
+    "id": 27892,
+    "nombre": "Lastenia",
+    "provinceID": 24
+  },
+  {
+    "id": 27893,
+    "nombre": "Medinas",
+    "provinceID": 24
+  },
+  {
+    "id": 27895,
+    "nombre": "Quilmes y Los Sueldos",
+    "provinceID": 24
+  },
+  {
+    "id": 27896,
+    "nombre": "Raco",
+    "provinceID": 24
+  },
+  {
+    "id": 27897,
+    "nombre": "Ranchillos y San Miguel",
+    "provinceID": 24
+  },
+  {
+    "id": 27899,
+    "nombre": "San Miguel de Tucuman",
+    "provinceID": 24
+  },
+  {
+    "id": 27900,
+    "nombre": "San Pedro de Colalao",
+    "provinceID": 24
+  },
+  {
+    "id": 27901,
+    "nombre": "San Javier",
+    "provinceID": 24
+  },
+  {
+    "id": 27902,
+    "nombre": "Santa Ana",
+    "provinceID": 24
+  },
+  {
+    "id": 27903,
+    "nombre": "Santa Lucía",
+    "provinceID": 24
+  },
+  {
+    "id": 27904,
+    "nombre": "Santa Rosa de Leales",
+    "provinceID": 24
+  },
+  {
+    "id": 27905,
+    "nombre": "Santa Rosa y Los Rojo",
+    "provinceID": 24
+  },
+  {
+    "id": 27906,
+    "nombre": "Simoca",
+    "provinceID": 24
+  },
+  {
+    "id": 27907,
+    "nombre": "Tafí Viejo",
+    "provinceID": 24
+  },
+  {
+    "id": 27910,
+    "nombre": "Trancas",
+    "provinceID": 24
+  },
+  {
+    "id": 27912,
+    "nombre": "Villa de Leales",
+    "provinceID": 24
+  },
+  {
+    "id": 27913,
+    "nombre": "Yerba Buena",
+    "provinceID": 24
+  },
+  {
+    "id": 27863,
+    "nombre": "Amaicha del Valle",
+    "provinceID": 24
+  },
+  {
+    "id": 27871,
+    "nombre": "Cevil Redondo",
+    "provinceID": 24
+  },
+  {
+    "id": 27873,
+    "nombre": "Colombres",
+    "provinceID": 24
+  },
+  {
+    "id": 27875,
+    "nombre": "Delfín Gallo",
+    "provinceID": 24
+  },
+  {
+    "id": 27876,
+    "nombre": "El Chañar",
+    "provinceID": 24
+  },
+  {
+    "id": 27877,
+    "nombre": "El Mollar",
+    "provinceID": 24
+  },
+  {
+    "id": 27883,
+    "nombre": "Famaillá",
+    "provinceID": 24
+  },
+  {
+    "id": 27888,
+    "nombre": "Los Ralos",
+    "provinceID": 24
+  },
+  {
+    "id": 27890,
+    "nombre": "La Florida",
+    "provinceID": 24
+  },
+  {
+    "id": 27894,
+    "nombre": "Monteros",
+    "provinceID": 24
+  },
+  {
+    "id": 27898,
+    "nombre": "Río Seco",
+    "provinceID": 24
+  },
+  {
+    "id": 27908,
+    "nombre": "Tafí del Valle",
+    "provinceID": 24
+  },
+  {
+    "id": 27909,
+    "nombre": "Taco Ralo",
+    "provinceID": 24
+  },
+  {
+    "id": 27911,
+    "nombre": "Villa Nougués",
+    "provinceID": 24
+  }
+]
+
+//step3 - ESPESIALIDAD
+16. http://67.205.136.161:8070/DocAppointments/rest/location/specialtiesperlocation
+- {
+	"locationID" : 27859
+}
+- Response 
+[
+  {
+    "id": 1,
+    "nombre": "Cardiologia"
+  },
+  {
+    "id": 2,
+    "nombre": "Odontologia"
+  },
+  {
+    "id": 3,
+    "nombre": "Otorrinolaringologia"
+  },
+  {
+    "id": 4,
+    "nombre": "Oncologia"
+  },
+  {
+    "id": 5,
+    "nombre": "Pediatria"
+  }
+]
+
+//step4 - INSTITUTO                                          hospitalsperspeciality                                     
+17. http://67.205.136.161:8070/DocAppointments/rest/location/hospitalsperspeciality
+- {
+  "specialtyID":1,
+  "locationID": 27859
+}
+- Response 
+[
+  {
+    "id": 2,
+    "nombre": "Sanatorio Norte",
+    "direccion": "Salta 122",
+    "telefono": "4312233",
+    "email": "info@sanatorionorte.com",
+    "estado": 1,
+    "locationID": 27859
+  }
+]
+
+
+18. http://67.205.136.161:8070/DocAppointments/rest/location/province/single
+- {
+	"provinceID": 1
+}
+- Response 
+{
+  "id": 1,
+  "nombre": "Buenos Aires"
+}
+
+19. http://67.205.136.161:8070/DocAppointments/rest/location/location/single
+- {
+	"locationID": 27909
+}
+- Response 
+{
+  "id": 27909,
+  "nombre": "Taco Ralo",
+  "provinceID": 24
+}
+
+
+
+
+
+
+
+20. http://67.205.136.161:8070/DocAppointments/rest/patient/all
+- {
+	"hospitalID": 1,
+	"authorization":
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+- Response 
+[
+  {
+    "nombre": "Oscar",
+    "apellido": "Calderon",
+    "dni": "23496666",
+    "sexo": 1,
+    "fechaNacimiento": "10-08-1910",
+    "telefono": "123-888",
+    "celular": "7860-4524",
+    "email": "lolo12@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 7,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 15
+  },
+  {
+    "nombre": "Rodrigo",
+    "apellido": "Perez",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "juanperez@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 1,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 1
+  },
+  {
+    "nombre": "Diego",
+    "apellido": "Mamani",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "alg2o@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 8,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 16
+  },
+  {
+    "nombre": "Albert Decrusestra",
+    "apellido": "Beliavsky",
+    "dni": "23498733",
+    "sexo": 1,
+    "fechaNacimiento": "01-01-1997",
+    "telefono": "123-456",
+    "celular": "5678-1234",
+    "email": "algo@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 5,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 13
+  },
+  {
+    "nombre": "Claudio",
+    "apellido": "Serna",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "albedosa@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 4,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 12
+  },
+  {
+    "nombre": "Alberto",
+    "apellido": "Fuentes",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "* TRIAL * TRIAL",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 2,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 8
+  },
+  {
+    "nombre": "Alan",
+    "apellido": "Diaz",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "algo@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 3,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 11
+  },
+  {
+    "nombre": "_PACIENTE GENERICO_",
+    "apellido": "",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "lololo@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 6,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 14
+  },
+  {
+    "nombre": "Nicolas",
+    "apellido": "Martinez",
+    "dni": "112233",
+    "sexo": 2,
+    "fechaNacimiento": "01-01-1986",
+    "telefono": "9999",
+    "celular": "6666",
+    "email": "fyedream@gmail.com",
+    "estado": 1,
+    "numObraSocial": null,
+    "googleUserId": null,
+    "hospitalID": null,
+    "provinceID": 24,
+    "obraSocialInfo": null,
+    "personType": "PATIENT",
+    "patientID": 9,
+    "doctorID": null,
+    "assistantID": null,
+    "locationID": 27909,
+    "personID": 17
+  }
+]
+
+21. http://67.205.136.161:8070/DocAppointments/rest/patient/user/add
+- {
+	"firstName": "Claudio1",
+	"lastName": "Bravo1",
+	"hospitalID": 1,
+	"cellPhone": "5677-1234",
+	"dni": "23498732",
+	"birthDate": "01-01-1977",
+	"gender": 1,
+	"socialSecurityType": 2,
+	"socialSecurityNumber": "7654321",
+	"locationID": 27909,
+	"provinceID": 24,
+	"telephone": "123-456",
+	"loginPolicy": "USRPASSWD",
+	"email": "claudiobravo1@barca.com",
+	"password": "Prueba1234567"
+}
+- Response Error
+<html>
+    <head>
+        <title>Error</title>
+    </head>
+    <body>Internal Server Error</body>
+</html>
+
+
+
+
+22. http://67.205.136.161:8070/DocAppointments/rest/patient/user/modify
+- {
+	"patientID": 8,
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+			
+		},
+		
+	"firstName": "pepe",
+	"lastName": "lizondo",
+	"cellPhone": "6666",
+	"dni": "112233",
+	"birthDate": "01-01-1986",
+	"gender": 2,
+	"locationID": 27909,
+	"provinceID": 24,
+	"telephone": "9999",
+	"status": "2"
+}
+- Response OK
+
+- Response Error
+{
+  "STATUS": "ERROR",
+  "MSG_": "La informacion del usuario no tiene un formato correcto"
+}
+
+
+
+
+//OK----End
+23. http://67.205.136.161:8070/DocAppointments/rest/patient/obrasocial/all
+- {
+	
+}
+- Response 
+[
+  {
+    "id": 1,
+    "nombre": "Boreal",
+    "estado": "ACT"
+  },
+  {
+    "id": 2,
+    "nombre": "Boreal",
+    "estado": "ACT"
+  },
+  {
+    "id": 3,
+    "nombre": "Prensa",
+    "estado": "ACT"
+  },
+  {
+    "id": 4,
+    "nombre": "Prensa",
+    "estado": "ACT"
+  },
+  {
+    "id": 5,
+    "nombre": "Prensa",
+    "estado": "ACT"
+  },
+  {
+    "id": 6,
+    "nombre": "Prensa111",
+    "estado": "ACT"
+  },
+  {
+    "id": 7,
+    "nombre": "Prensa",
+    "estado": "ACT"
+  }
+]
+
+
+
+
+
+24. http://67.205.136.161:8070/DocAppointments/rest/patient/obrasocial/add
+- {
+	"name": "ABCDEF",
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+- Response 
+{
+  "STATUS": "SUCCESS",
+  "MSG_": "La obra social ha sido almacenada exitosamente"
+}
+-Error
+{
+  "STATUS": "ERROR",
+  "MSG_": "Invalid"
+}
+
+
+
+
+25. http://67.205.136.161:8070/DocAppointments/rest/patient/obrasocial/modify
+- {
+	"name": "Boreal",
+	"obraSocialID": 2,
+	"status": "ACT",
+	"authorization": 
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+- Response
+{
+  "STATUS": "SUCCESS",
+  "MSG_": "La obra social ha sido actualizada exitosamente"
+}
+
+- Error
+
+
+
+   
+26. http://67.205.136.161:8070/DocAppointments/rest/patient/login
+- {
+	"loginPolicy": "USRPASSWD",
+	"eml": "pp@gmail.com",
+	"psswd": "Prueba1234"
+}
+- Response Error
+
+
+
+
+
+27. http://67.205.136.161:8070/DocAppointments/rest/patient/single
+- {
+	"patientID": 2,
+	"authorization":
+		{
+			"patientID": 1,
+			"loginPolicy": "USRPASSWD",
+			"eml": "juanperez@gmail.com",
+			"psswd": "Prueba123"
+		}
+}
+- Response Error
+
+
+
+						
+						
+
+												
+
+
+
+

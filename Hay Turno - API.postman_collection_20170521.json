@@ -1,0 +1,615 @@
+MobileProject_UserStories.pdf
+This document contains User Stories definitions of the project. We should use this doc to know wich requirements were complete during the project.
+
+Hay Turno - API.postman_collection_20170521.json
+This file can be imported into Postman to view API methodes.
+
+Host variable {{host}}:
+http://67.205.136.161:8070/DocAppointments/rest
+
+
+Invision: https://invis.io/865MLVNAC
+This invision is not exactly the same as the apk, but all views of the apk are included in the invision.
+
+Please let me know if you have any question.
+
+Thanks,
+
+
+
+
+{
+	"variables": [],
+	"info": {
+		"name": "Hay Turno - API",
+		"_postman_id": "8671bfc6-ecd9-1000-26c0-6ae7db1dd1df",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "appointment",
+			"description": "",
+			"item": [
+				{
+					"name": "appointment/all",
+					"request": {
+						"url": "{{host}}/appointment/all",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    },\n  \"patientID\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "appointment/schedule",
+					"request": {
+						"url": "{{host}}/appointment/schedule",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    },\n    \"patientID\": 1,\n    \"date\": \"20-09-2016\",\n    \"startTime\": \"10:00:00\",\n    \"endTime\": \"10:30:00\",\n    \"hospitalID\": 1,\n    \"doctorID\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "appointment/cancel",
+					"request": {
+						"url": "{{host}}/appointment/cancel",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"authorization\": {\n\t\t\"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    },\n    \"patientID\": 1,\n    \"appointmentID\": 23,\n    \"status\": 3\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctor",
+			"description": "",
+			"item": [
+				{
+					"name": "doctor/byinstitutionandspecialty",
+					"request": {
+						"url": "{{host}}/doctor/byinstitutionandspecialty",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    },\n  \"specialtyID\":1,\n  \"hospitalID\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/schedules",
+					"request": {
+						"url": "{{host}}/doctor/schedules",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"doctorID\":1,\n  \"hospitalID\": 1,\n  \"appointmentDateStart\": \"20-09-2016\",\n  \"appointmentDateEnd\": \"30-09-2016\"\n}"
+						},
+						"description": " appointments: turnos ocupados\n schedules: horarios de atencion del médico (entidad horarios_doctor)"
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/favorite/add",
+					"request": {
+						"url": "{{host}}/doctor/favorite/add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"doctorID\": 1, \"patientID\": 1, \"hospitalID\": 1}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/favorite/all",
+					"request": {
+						"url": "{{host}}/doctor/favorite/all",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    },\n  \"patientID\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/favorite/remove",
+					"request": {
+						"url": "{{host}}/doctor/favorite/remove",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"favoriteID\": 4}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/all",
+					"request": {
+						"url": "{{host}}/doctor/all",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/add",
+					"request": {
+						"url": "{{host}}/doctor/add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Doctor hosp\",\r\n  \"lastName\": \"Hospital\",\r\n  \"cellPhone\": \"5678-1234\",\r\n  \"hospitalID\": 1,\r\n  \"specialtyID\": 1,\r\n  \"assistantID\": 1,\r\n    \"dni\": \"23498733\",\r\n    \"birthDate\": \"01-01-1997\",\r\n    \"gender\": 2,\r\n    \"locationID\": 27909,\r\n    \"provinceID\": 24,\r\n    \"telephone\": \"123-456\",\r\n    \"loginPolicy\": \"USRPASSWD\",\r\n    \"email\": \"pp@gmail.com\",\r\n    \"password\": \"Prueba1234\",\r\n    \"authorization\": {\r\n      \"patientID\": 1,\r\n      \"loginPolicy\": \"USRPASSWD\",\r\n      \"eml\": \"juanperez@gmail.com\",\r\n      \"psswd\":\"Prueba123\"\r\n    }\r\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/modify",
+					"request": {
+						"url": "{{host}}/doctor/modify",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"firstName\": \"Juan Jose\",\r\n\t\"lastName\": \"Juarez\",\r\n\t\"cellPhone\": \"5678-123499\",\r\n\t\"doctorID\": 9,\r\n\t\"hospitalID\": 1,\r\n\t\"dni\": \"32233643\",\r\n\t\"birthDate\": \"01-01-1986\",\r\n\t\"gender\": 1,\r\n\t\"locationID\": 27909,\r\n\t\"provinceID\": 24,\r\n\t\"telephone\": \"123-45699\",\r\n\t\"loginPolicy\": \"USRPASSWD\",\r\n\t\"email\": \"pepe@gmail.com\",\r\n\t\"password\": \"Prueba2016\",\r\n\t\"authorization\": {\r\n\t\t\"patientID\": 1,\r\n\t\t\"loginPolicy\": \"USRPASSWD\",\r\n\t\t\"eml\": \"juanperez@gmail.com\",\r\n\t\t\"psswd\":\"Prueba123\"\r\n    }\r\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/byassistant",
+					"request": {
+						"url": "{{host}}/doctor/byassistant",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assistantID\": 1,\n\t\"authorization\": {\n\t\t\"patientID\": 1,\n\t\t\"loginPolicy\": \"USRPASSWD\",\n\t\t\"eml\": \"juanperez@gmail.com\",\n\t\t\"psswd\":\"Prueba123\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "doctor/single",
+					"request": {
+						"url": "{{host}}/doctor/single",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"doctorID\": 1,\r\n  \"authorization\": {\r\n    \"patientID\": 1,\r\n    \"loginPolicy\": \"USRPASSWD\",\r\n    \"eml\": \"juanperez@gmail.com\",\r\n    \"psswd\":\"Prueba123\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "location",
+			"description": "",
+			"item": [
+				{
+					"name": "location/provinces/all",
+					"request": {
+						"url": "{{host}}/location/provinces/all",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "location/locationsperprovince",
+					"request": {
+						"url": "{{host}}/location/locationsperprovince",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"provinceID\" : 24\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "location/specialtiesperlocation",
+					"request": {
+						"url": "{{host}}/location/specialtiesperlocation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"locationID\" : 27909\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "location/institutionsperspeciality",
+					"request": {
+						"url": "{{host}}/location/institutionsperspeciality",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"specialtyID\":1,\n  \"locationID\": 27909\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "location/province/single",
+					"request": {
+						"url": "{{host}}/location/province/single",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"provinceID\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "location/location/single",
+					"request": {
+						"url": "{{host}}/location/location/single",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"locationID\": 27909\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "patient",
+			"description": "",
+			"item": [
+				{
+					"name": "patient/single",
+					"request": {
+						"url": "{{host}}/patient/single",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"patientID\": 2,\n\t\"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/all",
+					"request": {
+						"url": "{{host}}/patient/all",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"hospitalID\": 1,\r\n\t\"authorization\": {\r\n\t\t\"patientID\": 1,\r\n\t\t\"loginPolicy\": \"USRPASSWD\",\r\n\t\t\"eml\": \"juanperez@gmail.com\",\r\n\t\t\"psswd\":\"Prueba123\"\r\n\t}\r\n}\r\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/user/add",
+					"request": {
+						"url": "{{host}}/patient/user/add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Claudio1\",\r\n  \"lastName\": \"Bravo1\",\r\n  \"hospitalID\": 1,\r\n  \"cellPhone\": \"5677-1234\",\r\n    \"dni\": \"23498732\",\r\n    \"birthDate\": \"01-01-1977\",\r\n    \"gender\": 1,\r\n    \"socialSecurityType\": 2,\r\n    \"socialSecurityNumber\": \"7654321\",\r\n    \"locationID\": 27909,\r\n    \"provinceID\": 24,\r\n    \"telephone\": \"123-456\",\r\n    \"loginPolicy\": \"USRPASSWD\",\r\n    \"email\": \"claudiobravo1@barca.com\",\r\n    \"password\": \"Prueba1234567\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/user/modify",
+					"request": {
+						"url": "{{host}}/patient/user/modify",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"patientID\": 8,\n\t\"authorization\": {\n\t\t\"patientID\": 1,\n\t\t\"loginPolicy\": \"USRPASSWD\",\n\t\t\"eml\": \"juanperez@gmail.com\",\n\t\t\"psswd\":\"Prueba123\"\n\t},\n\t\"firstName\": \"pepe\",\n\t\"lastName\": \"lizondo\",\n\t\"cellPhone\": \"6666\",\n    \"dni\": \"112233\",\n    \"birthDate\": \"01-01-1986\",\n    \"gender\": 2,\n    \"locationID\": 27909,\n    \"provinceID\": 24,\n    \"telephone\": \"9999\",\n    \"status\": \"2\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/obrasocial/all",
+					"request": {
+						"url": "{{host}}/patient/obrasocial/all",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/obrasocial/add",
+					"request": {
+						"url": "{{host}}/patient/obrasocial/add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Prensa\",\r\n\t\"authorization\": {\r\n\t\t\"patientID\": 1,\r\n\t\t\"loginPolicy\": \"USRPASSWD\",\r\n\t\t\"eml\": \"juanperez@gmail.com\",\r\n\t\t\"psswd\":\"Prueba123\"\r\n\t}\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/obrasocial/modify",
+					"request": {
+						"url": "{{host}}/patient/obrasocial/modify",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Boreal\",\r\n\t\"obraSocialID\": 2,\r\n\t\"status\": \"ACT\",\r\n\t\"authorization\": {\r\n\t\t\"patientID\": 1,\r\n\t\t\"loginPolicy\": \"USRPASSWD\",\r\n\t\t\"eml\": \"juanperez@gmail.com\",\r\n\t\t\"psswd\":\"Prueba123\"\r\n\t}\r\n}\r\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/login",
+					"request": {
+						"url": "{{host}}/patient/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"loginPolicy\": \"USRPASSWD\",\n\t\"eml\": \"pp@gmail.com\",\n\t\"psswd\":\"Prueba1234\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "patient/single copy",
+					"request": {
+						"url": "{{host}}/patient/single",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"patientID\": 2,\n  \"authorization\": {\n        \"patientID\": 1,\n        \"loginPolicy\": \"USRPASSWD\",\n        \"eml\": \"juanperez@gmail.com\",\n        \"psswd\":\"Prueba123\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

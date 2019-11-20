@@ -1,0 +1,147 @@
+
+//Invison: 
+//=====================================================================================================
+
+==========		https://projects.invisionapp.com/share/865MLVNAC#/screens/190351671		===============
+
+//=====================================================================================================
+//Step 1~4 Result
+(id: 24, nombre: "Tucumán")
+(id: 27859, nombre: "Acheral   ", provinceID: 24)
+(id: 1, nombre: "Cardiologia")
+(id: 2, nombre: "Sanatorio Norte", direccion: "Salta 122", telefono: "4312233", email: "info@sanatorionorte.com", estado: 1, locationID: 27859)
+//Step 5
+
+
+1. Bienvenidos
+Somos conscientes de las difficultaes a la hora de poder pedir turnos medicos.
+Para facilitarte este problema, te presentamos: Hay Turno!
+BUSCAR TURNO
+
+2. Busqueda/PROVINCIA
+Jujuy, Salta, Tucuman, Catamarca, Santiago del Estero
+
+3. Busqueda/CIUDAD
+San Salvador de Jujuy, Tilcara, Humahuaca, San Pedro, Palpala, Perico
+
+4. Busqueda/ESPECIALIDAD
+Cardiologia, Dermatologia, Traumatologia, Odontologia, Oftalmologia, Endocrinologia
+
+5. Busqueda/INSTITUCION
+Hospital Pablo Soria, Hospital de Ninos, Maternidad, Hospital San Roque, Clinica Lavalle, Clinica Nuestra, Senora del Rosario
+
+6. Busqueda/PROFESIONAL
+Veronica Ramires, Sona Horacio, Lopez Antonio, Nora Roldan, Alfonso Cecillia, Femando Farfan
+
+7. Busqueda
+Jujuy, San Salvador de Jujuy, Cardiologia, Hospital Pablo Soria, Veronica Ramires
+
+BUSCAR HORARIOS
+
+8. Horarios
+CONFIRMAR
+ENERO
+
+9. Horarios
+ENERO
+
+10. Cofirmacion
+Ciudad: San Salvador de Jujuy.
+Institucion: Hospital Pablo Sria
+Direccion y Telefono: Gral.Guemes
+
+Especialidad: Cardiologia
+Profesional: Veronica Ramires
+
+Dia: Horario
+
+11. Registro
+Iniciar sesion con Google+
+Iniciar sesion con Facebook
+
+NUEVA CUENTA
+12. Registro
+Nombre y Apellido, E.mail, Contrasena, Reptir contrasena
+
+13. Registro
+
+14. Datos personales
+Nombre y Apellido, Fecha de nacimiennto, Email, Telefono celular, Sexo
+
+15. Datos personales
+Masculino
+Nacimiento
+
+16. Aprobación
+
+Tu turno ha sido confirmado con exito y se ha incorporado dentro de tu calendaria de la app.
+Aclaracion: Los turnos medicos deben ser cancelados con 24 hs. de anticipacion.
+
+17. Mis Turnos
+ENERO
+No existen turmos medicos agendados para este dia.
+
+Esta seguro que desea cancelar el turno?
+
+
+18. Mis Turnos
+Turno médico: Cardiologia/Hospital Evita
+Dirreccion: Yrigoyen 2919
+Horario: 13:00hs.PM
+Profesional: Juan Carlos Ordonez
+
+Cancelar turno
+
+
+19. Mis Turnos
+?Esta seguro que desea cancelar el turno
+
+20. Mario Fiad
+Nuevo turno
+Mis turnos
+Mis turnos
+Datos personales
+Cerrar Sesion
+
+21. Datos personales
+Mario Fiad
+D.N.I: 16.456.126
+E.mail: 
+Nacimiento
+
+22. Mis medicos
+Juan Carlos Ordonez
+Eric de Titta
+Roberto Gomez
+Julieta Brandoni
+Ricardo Gonzalez
+Luciana Egrima
+
+23. Mis medicos
+Juan Carlos Ordonez
+Eric de Titta
+Roberto Gomez
+	Cardiologia
+	Hospital: Evita
+	Dirreccion: Yrigoyen
+	Proximos turnos: 17 de febrero del 2016
+	Horario: 13:00 hs.PM
+
+Cancelar turno
+Julieta Brandoni
+
+24. HayTurno.com
+
+//Simulator
+No se encontraron resultados, por favor seleccione otros criterios de 
+BUSCAR HORARIOS
+CONFIRMAR
+Sign - NUEVA CUENTA
+La contrasena debe tener entre 6 y 20 caracteres, una mayuscula, unaminuscula y un numero
+
+//1, 2, 3, 4, 5
+1. Tucuman
+2. Acheral, Aguilares, Alberdi, Alderetes, Ampimpa, Anca Juli, Arcadia, Banda del Rio Sali, Barrio APUNT, Bella Vista, Burruyacu, Colalao del Valle, Concepcion, El Manatial, El Cadillal, El Siambon, EI Pichao, Escaba, Graneros, Ingenio La Trinidad, La Cocha, Las Cejas, Lules, Las Talitas, Lastenia, Medinas, Quilmes y Los Sueldos, Raco, Ranchillos y San Miguel, San Miguel de Tucuman, San Pedro de Colalao, San Javier, Santa Ana, Santa Lucia, Santa Rosa de Leales, Santa Rosa y Los Rojo, Simoca, Tafi Viejo, Trancas, Villa de Leales, Yerba Buena, Amaicha del Valle, Cevil Redondo, Colombres, Delfin Gallo, El Chanar, El Mollar, El Mollar, Famailla, Los Ralos, La Florida, Monteros, Rio Seco, Taff del Valle, Taco Ralo, Villa Nougues
+3. Cardiologia, Odontologia, Otorrinolaringologia, Oncologia, 
+4. Sanatorio Norte
+5. Luciana Perez
